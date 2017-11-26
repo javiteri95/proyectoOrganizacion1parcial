@@ -2,7 +2,7 @@
 def persistenciaAditiva(numero):
     contador = 0
     acumulador = 0
-    while (numero > 10):
+    while (numero >= 10):
         while (numero  != 0):
             acumulador += (numero %10)
             numero //= 10
@@ -12,3 +12,5 @@ def persistenciaAditiva(numero):
     return contador
 
 print(persistenciaAditiva(7865))
+print(persistenciaAditiva(55))
+

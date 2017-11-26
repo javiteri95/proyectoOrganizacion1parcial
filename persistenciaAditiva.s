@@ -3,6 +3,7 @@
 	ingresoNumero: .asciiz "Ingrese el numero, por favor\n"
 	mensajeNumeroPuesto: .asciiz "Su numero es el: "
 	mensajeRetorno: .asciiz "la persistencia aditiva de su numero es: "
+	mensajeSalida: .asciiz "El programa ha terminado"
 	saltoLinea: .asciiz "\n"
 
 .text
@@ -55,6 +56,16 @@
 		la $a0 , saltoLinea
 		li $v0 , 4
 		syscall
+
+		#Impresion del salto de linea
+		la $a0 , saltoLinea
+		li $v0 , 4
+		syscall
+
+		#Impresion del salto de linea
+		la $a0 , mensajeSalida
+		li $v0 , 4
+		syscall
 		
 		
 		
@@ -73,7 +84,7 @@
 		addi $t6 , $t6 , 0 #contador
 		addi $t7 , $t7 , 0 #acumulador
 		loop1 : #loop de si el numero es mayor que 10 
-			bgt $a1 , 10 , loop2
+			bge $a1 , 10 , loop2
 			move $t1 , $t6 #gurado el valor de return en t1 
 			jr $ra
 			
@@ -96,3 +107,5 @@
 					b loop2
 					
 					
+		
+		
